@@ -1,7 +1,7 @@
 # ATS System
 
 ## Overview
-**ATS System** is an advanced, cloud-ready Applicant Tracking System designed to evaluate resumes against specific job descriptions (JDs) using Natural Language Processing (NLP). It leverages skill extraction, keyword matching, and provides insightful comparisons to help recruiters make data-driven decisions. The system is designed to handle various JDs and process thousands of resumes efficiently.
+**ATS System** is an advanced, cloud-ready Applicant Tracking System designed to evaluate resumes against specific job descriptions (JDs) using Natural Language Processing (NLP). It leverages skill extraction, and keyword matching, and provides insightful comparisons to help recruiters make data-driven decisions. The system is designed to handle various JDs and process thousands of resumes efficiently.
 
 ## Key Features
 - **Skill Extraction**: Uses NLP to analyze JDs and resumes, extracting key skills and requirements.
@@ -35,9 +35,57 @@ ATS System/
 ├── Dockerfile                 # Dockerfile for containerizing the application
 ├── requirements.txt           # List of dependencies for the project
 └── README.md                  # Project documentation
+```
+## Prerequisites
+- Python 3.8+
+- Docker (for containerization)
+- Azure or Local Database (optional for long-term storage of results)
 
-Prerequisites
-Python 3.8+
-Docker
-Azure Account (for cloud deployment)
-API Key for OpenAI or Google Gemini AI in config/settings.py (replace YOUR_API_KEY with your actual key)
+## Installation and Setup
+
+### 1. Clone the Repository:
+```bash
+git clone https://github.com/yourusername/ATS-System.git
+cd ATS-System
+```
+### 2. Configure API Keys:
+- Add your OpenAI API key in config/settings.py:
+```python
+API_KEY = "your_openai_api_key"
+```
+### 3. Install Dependencies:
+
+- Using requirements.txt:
+```bash
+pip install -r requirements.txt
+```
+### 4. Database Setup (optional):
+- Configure the SQLite database to store results in data/ats_data.db.
+
+## Usage Guide
+1. Uploading JDs and Resumes:
+   - Go to the main ATS app interface.
+   - Enter a job description and upload resumes (PDF format).
+2. Evaluation:
+   - Click Evaluate to analyze the match between JDs and resumes.
+3. View Results:
+   - See matched results with scores, matching and missing skills, and a final assessment.
+
+## Project Components
+### Data Storage
+- SQLite is used to store processed data, including job descriptions, resumes, and evaluation results.
+### Continuous Training
+- Automatically improves NLP models with usage, using data from JD and resume samples in the data/ folder.
+
+## Customizing for Your Own Use
+- API Key: Replace the API key in config/settings.py with your own.
+- Model Training: Customize and train spacy_ner_model and transformers in the models folder for improved entity extraction.
+## Contributing
+Please feel free to fork this project, submit issues, and contribute by opening pull requests.
+
+License
+This project is licensed under the MIT License.
+```kotlin
+
+In this structured format, GitHub should recognize headings, code blocks, and lists without issue. Let me know if this displays as intended for you!
+```
