@@ -79,13 +79,10 @@ pip install -r requirements.txt
 
 ## Customizing for Your Own Use
 - API Key: Replace the API key in config/settings.py with your own.
-- Model Training: Customize and train spacy_ner_model and transformers in the models folder for improved entity extraction.
+- Model Training: Customize and train spacy_ner_model and transformers in the model's folder for improved entity extraction.
 ## Contributing
 Please feel free to fork this project, submit issues, and contribute by opening pull requests.
 
 License
 This project is licensed under the MIT License.
-```kotlin
 
-In this structured format, GitHub should recognize headings, code blocks, and lists without issue. Let me know if this displays as intended for you!
-```
