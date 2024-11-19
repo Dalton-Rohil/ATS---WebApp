@@ -10,7 +10,7 @@ import spacy
 from config.settings import API_KEY
 import google.generativeai as genai
 
-# Configure the Google Gemini API using the imported API key
+# Configure the API using the imported API key
 genai.configure(api_key=API_KEY)
 
 # Load or create spaCy model
@@ -30,7 +30,7 @@ def get_gemini_response(input_text, pdf_content=None, prompt=None):
         str: The model's response text.
     """
     try:
-        model = genai.GenerativeModel('gemini-1.5-flash')
+        model = genai.GenerativeModel('Add your model name here')
         if pdf_content:
             response = model.generate_content([input_text, pdf_content[0], prompt])
         else:
