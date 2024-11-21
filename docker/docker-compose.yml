@@ -1,1 +1,43 @@
+# docker-compose.yml
+
+version: '3.8'
+
+services:
+  # Streamlit Web Service
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ats_web
+    restart: always
+    ports:
+      - "8501:8501"  # Map local port 8501 to container port 8501
+    volumes:
+      - .:/app       # Mount the local directory to the container
+    depends_on:
+      - db           # Ensure the web service waits for the database to be ready
+    environment:
+      - DATABASE_HOST= # ADD details after creating
+      - DATABASE_PORT= # ADD details after creating
+      - DATABASE_USER= # ADD details after creating
+      - DATABASE_PASSWORD= # ADD details after creating
+      - DATABASE_NAME= # ADD details after creating
+
+  # PostgreSQL Database Service
+  db:
+    image: 
+    container_name: # ADD details after creating
+    restart: always
+    environment: # ADD details after creating
+      - POSTGRES_USER= # ADD details after creating
+      - POSTGRES_PASSWORD= # ADD details after creating
+      - POSTGRES_DB= # ADD details after creating
+    ports:
+      - "5432:5432"  # Map local port 5432 to container port 5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Persist PostgreSQL data
+
+# Volume for database persistence
+volumes:
+  postgres_data:
 
